@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Build the React app for production with increased memory limit
-RUN NODE_OPTIONS="--max-old-space-size=512" npm run build
+RUN NODE_OPTIONS="--max-old-space-size=700" npm run build
 
 # # Build the React app for production
 # RUN npm run build
