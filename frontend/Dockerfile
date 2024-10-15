@@ -13,8 +13,11 @@ RUN npm install
 # Copy the rest of the app files to the container
 COPY . .
 
-# Build the React app for production
-RUN npm run build
+# Build the React app for production with increased memory limit
+RUN NODE_OPTIONS="--max-old-space-size=512" npm run build
+
+# # Build the React app for production
+# RUN npm run build
 
 # Stage 2: Serve the production build using Nginx
 FROM nginx:alpine
